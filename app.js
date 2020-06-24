@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () =>  {
     
     sharesButton = document.createElement('button');
     sharesButton.id = 'sharesButton';
-    sharesButton.innerText = 'Click here'
+    sharesButton.innerText = 'Submit'
     div1.appendChild(sharesButton)
     
     
