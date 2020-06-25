@@ -32,15 +32,64 @@ document.addEventListener('DOMContentLoaded', () =>  {
     sharesButton = document.querySelector('#sharesButton');
     sharesButton.style.color = 'white';
     sharesButton.style.backgroundColor = 'blue';
-    sharesButton.style.height = '40px'
+    sharesButton.style.height = '40px';
+
+
+    // Stock API
+
+    document.getElementById('sharesButton').addEventListener('click', stockReturn);
+  
+    function stockReturn() {
+        const apiKey1 = 'WDKZS0GMSWNAXG41';
+        const ticker = document.getElementById(stockNameInput.id).value;
+        // const interval = '5min';
+        const functionName = 'TIME_SERIES_DAILY';
+        // const outputSize = 'full';
+        const url = `https://www.alphavantage.co/query?function=${functionName}&symbol=${ticker}&apikey=${apiKey1}`;
+    
+        const xhr = new XMLHttpRequest();
+    
+        xhr.open('GET', url, true);
+    
+        xhr.onload = function () {
+          if (this.status === 200 && this.readyState === 4) {
+            let stockParsedText = JSON.parse(this.responseText);
+            console.log(stockParsedText);
+
+            
+            let objectKey = [Object.keys(stockParsedText['Time Series (Daily)'])];
+            let objectEntries = Object.entries(stockParsedText['Time Series (Daily)']);
+
+            console.log(objectEntries[0][1]['4. close']);
+
+            let openPrice = objectEntries[0][1]['1. open']; //[1] accessing date
+            let closePrice = objectEntries[0][1]['4. close'];
+            let shares = document.getElementById(sharesInput.id).value;
+            let profit = (shares*openPrice) - (shares*closePrice);
+            
+            
+            console.log(objectKey[0][0]); //date given
+            html = `<p>Total Return For The Day:$${profit.toFixed(2)}</p>`;
+            document.getElementById('totalReturn').innerHTML = html
+
+
+
+          } else if (this.status === 400) {
+            console.log('404 Error...Try Again');
+          }
+        } 
+        xhr.send();
+      }
+
 
     // Begining of Amazon API
     document.getElementById('sharesButton').addEventListener('click', loadText)
-    const apiKey = "add-api-key-here"
+    const apiKey = '1833d3125cmsh0ab8c932d47a9a1p1baa09jsnd57107bb5df9';
 
     function loadText() {
 
         const data = null;
+        
 
         const xhr = new XMLHttpRequest();
         xhr.withCredentials = true;
