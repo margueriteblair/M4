@@ -4,21 +4,18 @@ document.addEventListener('DOMContentLoaded', () =>  {
     stockNameInput = document.createElement('input');
     stockNameInput.id = 'stockName';
     stockNameInput.placeholder = "Stock Name";
-    document.body.appendChild(stockNameInput);
+    document.getElementById("jsButtons").appendChild(stockNameInput);
 
-    stockNameButton = document.createElement('button');
-    stockNameButton.id = 'stockNameButton';
-    stockNameButton.innerText = 'Submit';
-    document.body.appendChild(stockNameButton);
-
-
-
+    // stockNameButton = document.createElement('button');
+    // stockNameButton.id = 'stockNameButton';
+    // stockNameButton.innerText = 'Submit';
+    // document.body.appendChild(stockNameButton);
 
 
     //// bobby' add code
     div1 = document.createElement('div');
     div1.id = 'firstDiv';
-    document.body.appendChild(div1);
+    document.getElementById("jsButtons").appendChild(div1);
 
 
     sharesInput = document.createElement('input');
@@ -39,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () =>  {
 
     // Begining of Amazon API
     document.getElementById('sharesButton').addEventListener('click', loadText)
-    const apiKey = "paste_apikey_here"
+    const apiKey = "add-api-key-here"
     function loadText() {
 
         const data = null;
@@ -54,12 +51,17 @@ document.addEventListener('DOMContentLoaded', () =>  {
 
                 // Displays Amazon products list
                 let outputData = '<ul>'
-                for (let i = 0; i < parsedResponseText.products.length; i++) {
-                    outputData = outputData + `<li><h5>Product: ${parsedResponseText.products[i].title}</h5></li><li><p>Price: $${parsedResponseText.products[i].price}</p></li><li><p>Rating: ${parsedResponseText.products[i].rating} Stars</p></li><li><p><a href=${parsedResponseText.products[i].url}>${parsedResponseText.products[i].url}</a></p></li><br>`
+                let productImg = document.createElement("img")
+                for (let i = 0; i < 1; i++) { //we will replace i < 1 with parsedResponseText after Jamie's part
+                    outputData = outputData + `<li><p><a href=${parsedResponseText.products[i].url}>${parsedResponseText.products[i].title}</a></p></li><li><p>Price: $${parsedResponseText.products[i].price}</p></li><br>`
+                    productImg.src = parsedResponseText.products[i].thumbnail;
+                    productImg.id = "productImg"
+                    document.getElementById("amazonProducts").appendChild(productImg);
 
                 }
                 outputData = outputData + '</ul>'
                 document.getElementById('amazonProducts').innerHTML = outputData
+                document.getElementById('amazonProducts').appendChild(productImg);
             } else if (this.status === 404) {
                 document.getElementById("amazonProducts").innerHTML = "404 ERROR: Data Not Found!"
             }
