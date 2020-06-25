@@ -1,8 +1,7 @@
 
-//JS file please fucking kill me
-// yoooo mad funny - BA
-document.addEventListener('DOMContentLoaded', () =>  {
-    
+document.addEventListener('DOMContentLoaded', () => {
+
+
     stockNameInput = document.createElement('input');
     stockNameInput.id = 'stockName';
     stockNameInput.placeholder = "Stock Name";
@@ -38,11 +37,15 @@ document.addEventListener('DOMContentLoaded', () =>  {
 
     // Begining of Amazon API
     document.getElementById('sharesButton').addEventListener('click', loadText)
-    const apiKey = "add-api-key-here"
+    const apiKey = "paste-APIKey-here"
+
+    const stockGain = 25 // this will be the stocks gain when that portion is completed
 
     function loadText() {
 
         const data = null;
+
+        const array = []
 
         const xhr = new XMLHttpRequest();
         xhr.withCredentials = true;
@@ -50,18 +53,53 @@ document.addEventListener('DOMContentLoaded', () =>  {
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === this.DONE) {
                 let parsedResponseText = JSON.parse(this.responseText)
-                console.log(parsedResponseText);
+                console.log(parsedResponseText)
+                console.log("___________________");
 
                 // Displays Amazon products list
                 let outputData = '<ul>'
                 let productImg = document.createElement("img")
-                for (let i = 0; i < 1; i++) { //we will replace i < 1 with parsedResponseText after Jamie's part
-                    outputData = outputData + `<li><p><a href=${parsedResponseText.products[i].url}>${parsedResponseText.products[i].title}</a></p></li><li><p>Price: $${parsedResponseText.products[i].price}</p></li><br>`
-                    productImg.src = parsedResponseText.products[i].thumbnail;
-                    productImg.id = "productImg"
-                    document.getElementById("amazonProducts").appendChild(productImg);
 
+                for (let i = 0; i < parsedResponseText.products.length; i++) { //we will replace i < 1 with parsedResponseText after Jamie's part
+                    if (parsedResponseText.products[i].price <= stockGain) {
+
+                        // entire list of Amazon items that are equal or less then money gained from stocks
+                        console.log(parsedResponseText.products[i].title)
+                        console.log(parsedResponseText.products[i].price)
+                        console.log(i) // index of the Amazon item
+
+                        array.push(i)
+                        console.log("___________________");
+                    }
                 }
+                console.log(`array length: ${array.length}`)
+
+                let arLength = array.length
+
+                let randomNumber = Math.floor((Math.random() * arLength))
+
+                console.log(`random number: ${randomNumber}`)
+
+                console.log(array)
+
+                let selectNum = array.splice(randomNumber, 1)
+
+                console.log(`value of spliced number: ${selectNum}`)
+
+                console.log(array)
+
+                console.log(parsedResponseText.products[selectNum].title)
+                console.log(parsedResponseText.products[selectNum].price)
+                // console.log('___________________')
+
+                outputData = outputData + `<li><p><a href=${parsedResponseText.products[selectNum].url}>${parsedResponseText.products[selectNum].title}</a></p></li><li><p>Price: $${parsedResponseText.products[selectNum].price}</p></li><br>`
+
+                productImg.src = parsedResponseText.products[selectNum].thumbnail;
+                productImg.id = "productImg"
+
+                document.getElementById("amazonProducts").appendChild(productImg);
+
+
                 outputData = outputData + '</ul>'
                 document.getElementById('amazonProducts').innerHTML = outputData
                 document.getElementById('amazonProducts').appendChild(productImg);
