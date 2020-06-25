@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Begining of Amazon API
     document.getElementById('sharesButton').addEventListener('click', loadText)
-
+    const apiKey = "paste_apikey_here"
     function loadText() {
 
         const data = null;
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         xhr.open("GET", "https://amazon-product-reviews-keywords.p.rapidapi.com/product/search?country=US&keyword=Lightning%20Deals");
         xhr.setRequestHeader("x-rapidapi-host", "amazon-product-reviews-keywords.p.rapidapi.com");
-        xhr.setRequestHeader("x-rapidapi-key", "1833d3125cmsh0ab8c932d47a9a1p1baa09jsnd57107bb5df9");
+        xhr.setRequestHeader("x-rapidapi-key", apiKey);
 
         xhr.send(data);
 
