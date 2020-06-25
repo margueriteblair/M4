@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () =>  {
 
     // Begining of Amazon API
     document.getElementById('sharesButton').addEventListener('click', loadText)
-    const apiKey = "add-api-key-here"
+    const apiKey = "1833d3125cmsh0ab8c932d47a9a1p1baa09jsnd57107bb5df9"
     function loadText() {
 
         const data = null;
@@ -48,6 +48,9 @@ document.addEventListener('DOMContentLoaded', () =>  {
             if (this.readyState === this.DONE) {
                 let parsedResponseText = JSON.parse(this.responseText)
                 console.log(parsedResponseText);
+                // if (parsedResponseText.products[i].price > stockProfit && stockProfit > (.95)* parsedResponseText.products[i].price){
+                // put forloop inside of this, and put a for loop on the outside of this
+                // }
 
                 // Displays Amazon products list
                 let outputData = '<ul>'
