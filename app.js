@@ -1,5 +1,3 @@
-//JS file please fucking kill me
-
 document.addEventListener('DOMContentLoaded', () =>  {
     
     stockNameInput = document.createElement('input');
