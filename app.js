@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () =>  {
 
     // Begining of Amazon API
     document.getElementById('sharesButton').addEventListener('click', loadText)
-    const apiKey = "paste_apikey_here"
+    const apiKey = "1833d3125cmsh0ab8c932d47a9a1p1baa09jsnd57107bb5df9"
     function loadText() {
 
         const data = null;
