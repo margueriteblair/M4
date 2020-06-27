@@ -5,18 +5,32 @@ document.addEventListener('DOMContentLoaded', () => {
     stockNameInput = document.createElement('input');
     stockNameInput.id = 'stockName';
     stockNameInput.placeholder = "Stock Name";
-    document.getElementById("jsButtons").appendChild(stockNameInput);
+    document.body.appendChild(stockNameInput)
 
-    // stockNameButton = document.createElement('button');
-    // stockNameButton.id = 'stockNameButton';
-    // stockNameButton.innerText = 'Submit';
-    // document.body.appendChild(stockNameButton);
-
-
-    //// bobby' add code
-    div1 = document.createElement('div');
+    let div1 = document.createElement('div');
     div1.id = 'firstDiv';
-    document.getElementById("jsButtons").appendChild(div1);
+    document.body.appendChild(div1)
+    
+    let div3 = document.createElement('div');
+    div3.id = 'tickerSymbol';
+    div3.innerText = 'here1';
+    document.body.appendChild(div3);
+
+    let div4 = document.createElement('div');
+    div4.id = 'amazonProducts';
+    div4.innerText = 'here4';
+    document.body.appendChild(div4);
+
+    let div5 = document.createElement('div');
+    div5.id = 'spotLightProduct';
+    div5.innerText = 'here5';
+    document.body.appendChild(div5);
+
+
+    let pTag = document.createElement('p');
+    pTag.id = 'totalReturn';
+    pTag.innerText = 'Total Return : '
+    document.body.appendChild(pTag);
 
 
     sharesInput = document.createElement('input');
@@ -29,12 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
     sharesButton.innerText = 'Submit'
     div1.appendChild(sharesButton)
 
-
     sharesButton = document.querySelector('#sharesButton');
     sharesButton.style.color = 'white';
     sharesButton.style.backgroundColor = 'blue';
     sharesButton.style.height = '40px';
 
+
+
+   
 
     // Stock API
 
