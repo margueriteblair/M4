@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('sharesButton').addEventListener('click', stockReturn);
   
     function stockReturn() {
-        const apiKey1 = 'WDKZS0GMSWNAXG41';
-        let apiKey = '1833d3125cmsh0ab8c932d47a9a1p1baa09jsnd57107bb5df9';
+        const apiKey1 = 'shawns-apiKey';
+        let apiKey = 'wills-apiKey';
         const ticker = document.getElementById(stockNameInput.id).value;
         // const interval = '5min';
         const functionName = 'TIME_SERIES_DAILY';
