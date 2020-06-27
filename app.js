@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('sharesButton').addEventListener('click', stockReturn);
   
     function stockReturn() {
-        const apiKey1 = 'insert-shawns-stock-key-here';
-        let apiKey = 'insert-wills-amazon-key-kere';
+        const apiKey1 = 'shawns-apiKey';
+        let apiKey = 'wills-apiKey';
         const ticker = document.getElementById(stockNameInput.id).value;
         // const interval = '5min';
         const functionName = 'TIME_SERIES_DAILY';
@@ -87,23 +87,40 @@ document.addEventListener('DOMContentLoaded', () => {
     
                     // Displays Amazon products list
                     let outputData = '<ul>'
+                    let allProductData = '<ul>'
 
                     let productImg = document.createElement("img")
-    
-                    for (let i = 0; i < parsedResponseText.products.length; i++) {
+                    let allProductImgs = document.createElement('img')
+
+                    for (let i = 0; i < 10; i++) {
                         // console.log(profit)
                         // console.log(parseInt(parsedResponseText.products[i].price))
+                        
                         if (parseInt(parsedResponseText.products[i].price) <= profit && profit > 0) {
+
+                          allProductData = allProductData + `<li><p><a href=${parsedResponseText.products[i].url}>${parsedResponseText.products[i].title}</a></p></li><li><p>Price: $${parsedResponseText.products[i].price}</p><img src="${parsedResponseText.products[i].thumbnail}"></li><br>`
+
+                          allProductImgs.src = parsedResponseText.products[i].thumbnail;
+                          allProductImgs.id = 'allProductImgs'
+                          document.getElementById('amazonProducts').appendChild(allProductImgs);
+      
+
                             // console.log("hello")
                             // entire list of Amazon items that are equal or less then money gained from stocks
                             console.log(parsedResponseText.products[i].title)
                             console.log(parsedResponseText.products[i].price)    
+                            console.log('pictures here')
+                            console.log(parsedResponseText.products[i].thumbnail);
                             array.push(i)
                             // console.log(array)
                         } else if (parseInt(parsedResponseText.products[i].price) >= profit && profit < 0) { 
                             document.getElementById("amazonProducts").innerText = `lmao sis ya shouldnt be buying anything`; 
                         };
                     }
+                    allProductData = allProductData + '</ul>'
+                    document.getElementById('amazonProducts').innerHTML = allProductData
+                    document.getElementById('amazonProducts').appendChild(allProductImgs);
+
                     console.log(`array length: ${array.length}`)
                     
     
@@ -128,12 +145,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     outputData = outputData + `<li><p><a href=${parsedResponseText.products[selectNum].url}>${parsedResponseText.products[selectNum].title}</a></p></li><li><p>Price: $${parsedResponseText.products[selectNum].price}</p></li><br>`
                     productImg.src = parsedResponseText.products[selectNum].thumbnail;
                     productImg.id = "productImg"
-                    document.getElementById("amazonProducts").appendChild(productImg);
+                    document.getElementById("spotLightProduct").appendChild(productImg);
     
     
                     outputData = outputData + '</ul>'
-                    document.getElementById('amazonProducts').innerHTML = outputData
-                    document.getElementById('amazonProducts').appendChild(productImg);
+                    document.getElementById('spotLightProduct').innerHTML = outputData
+                    document.getElementById('spotLightProduct').appendChild(productImg);
+
                 } else if (this.status === 404) {
                     document.getElementById("amazonProducts").innerHTML = "404 ERROR: Data Not Found!"
                 }
