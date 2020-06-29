@@ -1,21 +1,53 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+
+    pageTitle = document.createElement('h1');
+    pageTitle.id = 'title';
+    pageTitle.innerText = "Team : Drun-Codess"
+    document.body.appendChild(pageTitle)
+    pageTitle.style.color = 'darkgrey';
+    pageTitle.style.height = ' 60px';
+
+    pTag2 = document.createElement('p');
+    pTag2.id = 'projectName';
+    pTag2.innerText = 'Project : M4';
+    document.body.appendChild(pTag2);
+    pTag2.style.height = '50px';
+    pTag2.style.color = 'green';
+
+
+
+
     stockNameInput = document.createElement('input');
     stockNameInput.id = 'stockName';
     stockNameInput.placeholder = "Stock Name";
-    document.getElementById("jsButtons").appendChild(stockNameInput);
+    document.body.appendChild(stockNameInput)
 
-    // stockNameButton = document.createElement('button');
-    // stockNameButton.id = 'stockNameButton';
-    // stockNameButton.innerText = 'Submit';
-    // document.body.appendChild(stockNameButton);
-
-
-    //// bobby' add code
-    div1 = document.createElement('div');
+    let div1 = document.createElement('div');
     div1.id = 'firstDiv';
-    document.getElementById("jsButtons").appendChild(div1);
+    document.body.appendChild(div1)
+    
+    let div3 = document.createElement('div');
+    div3.id = 'tickerSymbol';
+    div3.innerText = '';
+    document.body.appendChild(div3);
+
+    let div4 = document.createElement('div');
+    div4.id = 'amazonProducts';
+    div4.innerText = '';
+    document.body.appendChild(div4);
+
+    let div5 = document.createElement('div');
+    div5.id = 'spotLightProduct';
+    div5.innerText = '';
+    document.body.appendChild(div5);
+
+
+    let pTag = document.createElement('p');
+    pTag.id = 'totalReturn';
+    pTag.innerText = 'Total Return : '
+    document.body.appendChild(pTag);
 
 
     sharesInput = document.createElement('input');
@@ -28,12 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
     sharesButton.innerText = 'Submit'
     div1.appendChild(sharesButton)
 
-
     sharesButton = document.querySelector('#sharesButton');
     sharesButton.style.color = 'white';
-    sharesButton.style.backgroundColor = 'blue';
-    sharesButton.style.height = '40px';
+    sharesButton.style.backgroundColor =  'blue' ;
+    sharesButton.style.height = '25px';
+    // sharesButton.style.borderRadius = "3px";
 
+
+
+   
 
     // Stock API
 
@@ -179,3 +214,4 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
 })
+
