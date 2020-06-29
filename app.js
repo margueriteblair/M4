@@ -2,6 +2,23 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 
+    pageTitle = document.createElement('h1');
+    pageTitle.id = 'title';
+    pageTitle.innerText = "Team : Drun-Codess"
+    document.body.appendChild(pageTitle)
+    pageTitle.style.color = 'darkgrey';
+    pageTitle.style.height = ' 60px';
+
+    pTag2 = document.createElement('p');
+    pTag2.id = 'projectName';
+    pTag2.innerText = 'Project : M4';
+    document.body.appendChild(pTag2);
+    pTag2.style.height = '50px';
+    pTag2.style.color = 'green';
+
+
+
+
     stockNameInput = document.createElement('input');
     stockNameInput.id = 'stockName';
     stockNameInput.placeholder = "Stock Name";
@@ -13,17 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let div3 = document.createElement('div');
     div3.id = 'tickerSymbol';
-    div3.innerText = 'here1';
+    div3.innerText = '';
     document.body.appendChild(div3);
 
     let div4 = document.createElement('div');
     div4.id = 'amazonProducts';
-    div4.innerText = 'here4';
+    div4.innerText = '';
     document.body.appendChild(div4);
 
     let div5 = document.createElement('div');
     div5.id = 'spotLightProduct';
-    div5.innerText = 'here5';
+    div5.innerText = '';
     document.body.appendChild(div5);
 
 
@@ -45,8 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sharesButton = document.querySelector('#sharesButton');
     sharesButton.style.color = 'white';
-    sharesButton.style.backgroundColor = 'blue';
-    sharesButton.style.height = '40px';
+    sharesButton.style.backgroundColor =  'blue' ;
+    sharesButton.style.height = '25px';
+    // sharesButton.style.borderRadius = "3px";
 
 
 
