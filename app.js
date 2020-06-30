@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sharesButton.style.color = 'white';
     sharesButton.style.backgroundColor = 'blue';
     sharesButton.style.height = '40px';
+    sharesButton.style.borderradius = '5px'
 
 
     // Stock API
