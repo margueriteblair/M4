@@ -1,6 +1,12 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+
+
+    jsBtnDiv = document.createElement('div');
+    jsBtnDiv.id = 'jsButtons';
+    document.body.appendChild(jsBtnDiv)
+
     stockNameInput = document.createElement('input');
     stockNameInput.id = 'stockName';
     stockNameInput.placeholder = "Stock Name";
@@ -12,7 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // document.body.appendChild(stockNameButton);
 
 
-    //// bobby' add code
+    
+
+
     div1 = document.createElement('div');
     div1.id = 'firstDiv';
     document.getElementById("jsButtons").appendChild(div1);
@@ -32,8 +40,28 @@ document.addEventListener('DOMContentLoaded', () => {
     sharesButton = document.querySelector('#sharesButton');
     sharesButton.style.color = 'white';
     sharesButton.style.backgroundColor = 'blue';
-    sharesButton.style.height = '40px';
-    sharesButton.style.borderradius = '5px'
+    sharesButton.style.height = '25px';
+    borderRadius = 'border-radius';
+    sharesButton.style.borderRadius = '10px';
+
+    tickerSymb = document.createElement('div');
+    tickerSymb.id ='tickerSymbol';
+    document.body.appendChild(tickerSymb);
+
+    pTag1 = document.createElement('p');
+    pTag1.id = 'totalReturn';
+    pTag1.innerText = 'Total Return';
+    tickerSymb.appendChild(pTag1);
+
+  
+
+    amazonProds = document.createElement('div');
+    amazonProds.id = 'amazonProducts';
+    document.body.appendChild(amazonProds);
+
+    spotLightProd = document.createElement('div');
+    spotLightProd.id = 'spotLightProduct';
+    document.body.appendChild(spotLightProd);
 
 
     // Stock API
